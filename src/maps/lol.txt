@@ -1,0 +1,11 @@
+PLANE 5 10
+#####
+# h #
+#PPP#
+#PPP#
+#PPP#
+#PPP#
+#PPP#
+#PPP#
+#PPP#
+#####

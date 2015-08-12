@@ -1,0 +1,57 @@
+./ssbros maps/basic.txt --hero simplehero --delay-enemy 4 --delay-powerup 2 --test TEST_SIMPLEHERO_BASIC --goal hero --moves 100 --delay 100 --runpts 4 --goalpts 11 --time 5
+./ssbros maps/open.txt --hero simplehero --delay-enemy 4 --delay-powerup 2 --test TEST_SIMPLEHERO_OPEN --moves 100 --delay 100 --runpts 4 --goalpts 11 --time 5
+./ssbros maps/twisteasy.txt --hero simplehero --delay-powerup 4 --test TEST_SIMPLEHERO_TWIST_EASTY --moves 10000 --delay 0 --runpts 4 --goalpts 11 --time 250
+./ssbros maps/random20x20.txt --hero simplehero --delay-powerup 4 --test TEST_SIMPLEHERO_20x20 --moves 1000 --delay 0 --runpts 4 --goalpts 11 --time 30
+Simplehero EASY memory test (open): 10 points, -2 for each memory warning or leak
+valgrind --leak-check=full --dsymutil=yes ./ssbros maps/open.txt --hero simplehero --test TEST_SIMPLEHERO_OPEN_MEMORY --render-off
+==28630== Memcheck, a memory error detector
+==28630== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==28630== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==28630== Command: ./ssbros maps/open.txt --hero simplehero --test TEST_SIMPLEHERO_OPEN_MEMORY --render-off
+==28630== 
+All eatables have been eaten! It took 13 moves.
+==28630== 
+==28630== HEAP SUMMARY:
+==28630==     in use at exit: 0 bytes in 0 blocks
+==28630==   total heap usage: 349 allocs, 349 frees, 697,940 bytes allocated
+==28630== 
+==28630== All heap blocks were freed -- no leaks are possible
+==28630== 
+==28630== For counts of detected and suppressed errors, rerun with: -v
+==28630== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+Were there leaks? -2/10 for each!
+
+Simplehero EASY memory test (basic): 5 points, -1 for each memory warning or leak
+valgrind --leak-check=full --dsymutil=yes ./ssbros maps/basic.txt --hero simplehero --test TEST_SIMPLEHERO_BASIC_MEMORY --render-off
+==28635== Memcheck, a memory error detector
+==28635== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==28635== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==28635== Command: ./ssbros maps/basic.txt --hero simplehero --test TEST_SIMPLEHERO_BASIC_MEMORY --render-off
+==28635== 
+All eatables have been eaten! It took 15 moves.
+==28635== 
+==28635== HEAP SUMMARY:
+==28635==     in use at exit: 0 bytes in 0 blocks
+==28635==   total heap usage: 240 allocs, 240 frees, 216,809 bytes allocated
+==28635== 
+==28635== All heap blocks were freed -- no leaks are possible
+==28635== 
+==28635== For counts of detected and suppressed errors, rerun with: -v
+==28635== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+Were there leaks? -1/5 for each!
+
+End Test Simplehero EASY (75 pts total)
+./ssbros maps/cycle.txt --hero simplehero --delay-enemy 4 --delay-powerup 2 --test TEST_SIMPLEHERO_CYCLE --moves 500 --delay 10 --runpts 1 --goalpts 7 --time 10
+./ssbros maps/tree.txt --hero simplehero --test TEST_SIMPLEHERO_TREE --moves 500 --delay 1000 --runpts 1 --goalpts 7 --time 30
+./ssbros maps/4waypossible.txt --hero simplehero --test TEST_SIMPLEHERO_4WAY_POSSIBLE --moves 1000 --delay 0 --runpts 1 --goalpts 7 --time 400
+./ssbros maps/pacman.txt --hero simplehero --disable-enemies --test TEST_SIMPLEHERO_PACMAN --moves 1000 --delay 0 --delay-powerups 2 --runpts 1 --goalpts 7 --time 300
+./ssbros maps/random50x50.txt --hero simplehero --disable-enemies --test TEST_SIMPLEHERO_50x50 --moves 20000 -delay 0 --delay-powerups 2 --runpts 1 --goalpts 7 --time 500
+./ssbros maps/random75x25.txt --hero simplehero --disable-enemies --test TEST_SIMPLEHERO_75x25 --moves 20000 --delay 0 --delay-powerups 2 --runpts 1 --goalpts 7 --time 500
+./ssbros maps/random100x20.txt --hero simplehero --disable-enemies --test TEST_SIMPLEHERO_100x20 --moves 2000 --delay 0 --delay-powerups 2 --runpts 0 --goalpts 6 --time 500
+./ssbros maps/twistmed.txt --hero simplehero --disable-enemies --test TEST_SIMPLEHERO_TWIST_MED --moves 2000 --delay 0 --delay-powerups 2 --runpts 0 --goalpts 6 --time 200
+End Test Simplehero MEDIUM (60 pts total)
+./ssbros maps/stronglyconnected.txt --hero simplehero --delay-enemy 4 --delay-powerup 2 --test TEST_SIMPLEHERO_STRONGLYCONNECTED1 --delay 100 --runpts 0 --goalpts 4 --time 100
+./ssbros maps/stronglyconnected2.txt --hero simplehero --delay-enemy 4 --delay-powerup 2 --test TEST_SIMPLEHERO_STRONGLYCONNECTED2 --delay 100 --runpts 0 --goalpts 3 --time 100
+./ssbros maps/stronglyconnected3.txt --hero simplehero --delay-enemy 4 --delay-powerup 2 --test TEST_SIMPLEHERO_STRONGLYCONNECTED3 --delay 100 --runpts 0 --goalpts 3 --time 100
+./ssbros maps/plinko.txt --hero simplehero --test TEST_SIMPLEHERO_PLINKO --delay 0 --runpts 0 --goalpts 5 --delay-powerup 10 --delay 100 --time 500
+End Test Simplehero HARD (15pts total)

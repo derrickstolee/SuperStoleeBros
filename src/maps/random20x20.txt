@@ -1,0 +1,21 @@
+PLANE 20 20
+#* #   P *   P   P* 
+  #    # P P    P#  
+      P  h   P      
+   #         # # h  
+     #           P  
+     *#   *# # P #  
+P        P        h 
+   #      *#   #h  *
+   # *  ##    PhP #P
+  # h             P 
+ #*h    Ph   * # PhP
+P    h       #      
+ P  ##    #         
+P   #P    * *       
+   P# #*  #  h P    
+#*  P #* P   PPP#   
+       * P  *P  *  #
+P*     # #    P     
+   P   P *h         
+   * #   P      h P 

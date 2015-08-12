@@ -1,0 +1,256 @@
+\documentclass[11pt]{article}
+
+\include{psfig}
+\usepackage{pictex, latexsym, graphicx,amsmath,amssymb,amsbsy,amsfonts,amsthm,verbatim}
+\usepackage[pdfpagemode=UseOutlines,colorlinks=true,pdfnewwindow=true,urlcolor=red]{hyperref}
+\usepackage{color}
+%\usepackage{caption}
+%\usepackage{subfig}
+\usepackage{subfigure}
+%\usepackage{multicol, epsfig}
+\usepackage{graphics}
+\usepackage{fullpage}
+
+\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\newcommand{\dil}{\displaystyle}
+\newcommand{\mymod}{\hspace{-.8em}\pmod}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray*}}
+\newcommand{\eea}{\end{eqnarray*}}
+
+\newcommand{\bib}{thebibliography}
+
+\usepackage{multirow}
+
+\def\dd{\displaystyle}
+\input colordvi
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0cm}
+\setlength{\headsep}{0cm}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\textwidth}{6.5in}
+\setlength{\parindent}{0in}
+
+\newcommand{\hsp}{\hspace{.2in}}
+\newcommand{\dstyle}{\displaystyle}
+\newcommand{\B}{\textbf}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bx}{\begin{bmatrix}}
+\newcommand{\ex}{\end{bmatrix}}
+
+
+\setlength{\parskip}{1em}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{center}\large\bf
+Super Stolee Bros
+\end{center}
+
+\textit{This was originally assigned as a project for COMS 229 in Spring 2014.}
+
+
+\section{Project Summary}
+
+\textbf{Super Stolee Bros}  is a completely original video game\footnote{It should really be called PAC++MAN, but I don't want to get sued.}.
+The goal is for the heroe(s) to eat all of the ``eatable" items in the map, but to not be eaten by any of the enemies!
+Right now, the game is built for the user to control the heroe(s) by the keyboard, but your job is to create AI\footnote{Not really ``Artificial Intelligence,'' but Automated Interaction!} to replace the heroes, enemies, and even the powerups!
+
+Each instance of the game takes place on a 2D map that is placed on a grid. 
+Certain locations are marked as walls, and you cannot walk through walls.
+Otherwise, you can typically walk left, right, up, down, or even stay put, but in certain places there are ``teleporters'' that allow a jump to another place in the map.
+There are also ``treadmills'' that force movement in one direction.
+The map is stored in a data structure called a \texttt{GraphMap} that stores lists of the possible moves from each location.
+Each map is loaded to the game from a text file.
+
+Here are some basic rules:
+\begin{itemize}
+\item When a \emph{hero} overlaps an \emph{eatable} item, that eatable item is removed.
+\item When a \emph{hero} overlaps with an \emph{enemy} (that is not \emph{eatable}), then the hero is removed.
+\item The \emph{heroes} win if all eatable items are removed.
+\item The \emph{enemies} win if all heroes are removed, or if time runs out.
+\end{itemize}
+
+Your goal is to create actors that perform certain actions:
+
+\begin{itemize}
+\item \texttt{simplehero} : This hero will eat all eatables, given sufficient time, no enemies, and no ``fast'' powerups.  (This is the only strategy required to be done by Part A.)
+\item \texttt{smarthero} : This hero will eat all eatables, given sufficient time, ``slow'' enemies, and no ``fast'' powerups.
+\item \texttt{smartenemy} : This enemy will have a coordinated strategy that will guarantee the enemies win (by eating the hero, or by making time run out).
+\item \texttt{smartpowerup} : This powerup will try to make the enemies win by avoiding the hero and ``hiding'' near the enemies.
+\end{itemize}
+
+\textbf{Note:} This project involves working with compiled binaries created by the instructor. 
+You will be given C++ header files and compiled object files and this will allow you to interact with these objects without modifying the code yourself.
+As this code may contain bugs that you will discover during your project, the binaries and header files may be subject to modification \emph{at any time}.
+Typically, this will be a small bug fix, but it may also be due to adding features, changing an interface, and/or changing the rules (slightly).
+
+Whenever an update is made to the binaries, we will send out an email warning you of this fact.
+If there is a change to the interfaces, then the sample \texttt{main} method will be updated to account for this.
+This is unfortunately something that is unavoidable as we make concrete plans for how to grade and test your AIs.
+
+\section{Project Goals}
+
+There are several learning objectives for this project. 
+We want you to learn how to solve problems by breaking them down into a sequence of small decisions in order to create a full algorithm.
+We want you to predict possible failures in your algorithms.
+You should flex some creative muscles in order to come up with solutions.
+You will learn to deal with third-party libraries and APIs by looking through documentation and troubleshooting.
+In addition, of course, we want to make sure you learn to use C++.
+
+In addition, you will demonstrate proficiency in the following C++ programming language features:
+classes,
+inheritance,
+polymorphism,
+pass-by-reference,
+source code organization,
+compilation,
+makefiles.
+
+You may also find the following concepts helpful:
+the Standard Template Library,
+templates, 
+debuggers (such as \texttt{gdb}),
+memory error detectors (such as \texttt{valgrind}),
+
+
+\section{Detailed Project Specification}\label{sec:specification}
+
+Generally, there are three main classes to this game.
+
+\begin{itemize}
+\item \texttt{GameManager} --- Controls all action during the game, and reports if there are any special events in the game.
+\item \texttt{GraphMap} --- Stores the current state of the game, including all positions of the actors.
+\item \texttt{Actor} --- Extensions of \texttt{Actor} contain the strategies of the different players of the game, including heroes, enemies, powerups, and eatables.
+\end{itemize}
+
+Your main task is to extend the \texttt{Actor} class to create the four strategies \texttt{simplehero}, \texttt{smarthero}, \texttt{smartenemy}, and \texttt{smartpowerup}.
+For \textbf{Part A}, only \texttt{simplehero} must be implemented, but all four must be implemented in the version submitted for \textbf{Part B}.
+These should all be implemented as distinct extensions of the \texttt{Actor} class and then passed to  the \texttt{GameManager}.
+Command-line arguments will specify which actors are to be used in each run of the game.
+
+\begin{itemize}
+\item Implement the \texttt{getNetId} method, which will return a string containing your NetID.
+\item Implement the \texttt{getActorID} method, which will return a string containing the id of the actor (one of \texttt{simplehero}, \texttt{smarthero}, \texttt{smartenemy}, or \texttt{smartpowerup}).
+\item Implement the \texttt{duplicate} method, which will create a new instance of your class. (This will also allow you to connect your instances in order to collectively form a strategy.)
+\item Implement the \texttt{selectNeighbor} method, which is how the actor selects the next move, given the current state of the game map.
+\end{itemize}
+
+These methods are all used for different reasons.
+You will pass all of your actors to the \texttt{GameManager} in an array, and it will use \texttt{duplicate} to create extra instances whenever the map says to place an actor of that type.
+The command-line arguments will be used to select which actor ID is tied to each actor type.
+(The \texttt{GameManager} takes the arguments as part of its constructor, so you do not need to parse the arguments.)
+During the method \texttt{GameManager::play()}, it will manage the map and ask each actor to select a move using \texttt{selectNeighbor}.
+
+\textbf{Important:} The map is stored in a data structure called \texttt{GraphMap}.
+You can interact with this object during \texttt{selectNeighbor}. 
+Each $(x,y)$ position is given a \emph{vertex id}, which is a number from $0$ to \texttt{numVertices()}$-1$.
+You will discover which vertices have edges to other vertices by using pass-by-reference parameters with the $(x,y)$ coordinates.
+The \emph{structure} of the map will not change (the possible moves at each position) but the positions of the actors may change.
+See \texttt{GraphMap.hpp} for more on this interface.
+
+The \texttt{GraphMap} will also store a list of the actors in the game, but you will only discover their type and position.
+Use that information to pursue eatables and avoid enemies (or pursue heroes or enemies, depending on the strategy!)
+
+\subsection{Command-Line Arguments}
+
+The executable should always be called \texttt{ssbros}.
+The program is run as
+\begin{center}
+\texttt{./ssbros [map] [arguments]}
+\end{center}
+
+Thus, the first command is to a text file containing the map for the level. There are several examples in the supplied tarball in the "maps" directory.
+Other arguments are as follows:
+
+\begin{itemize}
+\item \texttt{--moves \#} -- How many turns to allow before quitting.
+
+\item \texttt{--hero [id]} -- Use the actor with the given id for the heroes.
+
+\item \texttt{--enemy [id]} -- Use the actor with the given id for the enemies.
+
+\item \texttt{--eatable [id]} -- Use the actor with the given id for the eatables.
+
+\item \texttt{--powerup [id]} -- Use the actor with the given id for the powerups.
+
+\item \texttt{--delay-[type] \#} -- Let actors of the given type only make moves every \# turns.
+
+\item \texttt{--delay \#} -- Make every move last \# miliseconds.
+
+\item \texttt{--render-off} -- Do not render the map, or make timed delays. Useful if you want to use \texttt{printf} for debugging.
+\end{itemize}
+
+
+\subsection{Hints on how to get started}
+
+On Monday March 24th, we will have a lecture about graphs, directed graphs, and path-finding algorithms. DON'T MISS IT!
+In this lecture, we will learn an algorithm, called \emph{breadth-first search} which can be used to find paths in a directed graph.
+Using this, you should create a method that will determine the distance between any two vertices, and use that as a subroutine for your more advanced algorithm.
+There are some excellent Wikipedia articles at the end of this document, but also you can find many many resources about these algorithms!
+
+
+
+\subsection{README}
+
+As part of your source-code deliverable, you will write a text file called \texttt{README} that contains a description of your project design.
+The \texttt{README} file should contain the following elements:
+\begin{enumerate}
+\item Your Name and NetID
+\item A high-level description of your strategy for each actor.
+\item A description of any extra details assumed due to ambiguous requirements in the project specification.
+\item A file listing of the source code files, specifically mentioning the purpose of each code file.
+\end{enumerate}
+
+\subsection{Compilation and Makefile Requirements}
+
+All software must compile and run on \texttt{pyrite.cs.iastate.edu} without error.
+Simply typing \texttt{make} should build all of your executables. 
+Also, \texttt{make clean} should remove the executables and any object files. 
+You may include other targets for your convenience as you choose (e.g., ``\texttt{make tarball}'')
+
+Your source code should be delivered as a gzipped tarball with the file name \texttt{netid.tar.gzip} (where \texttt{netid} is replaced by your NetID).
+Inside the tarball should be \emph{source code only}, no compiled binaries.
+The grader will type the following commands to compile the software:
+
+\begin{verbatim}
+tar xvf netid.tar.gzip
+make clean
+make
+cat README
+\end{verbatim}
+
+Thus, your tarball should contain the \texttt{Makefile} in the root directory, and compile all binaries to that same directory.
+In addition, your makefile should use the \texttt{-Wall} and \texttt{-g} flags when compiling via \texttt{g++}.
+We will use \texttt{valgrind} to make sure that no memory errors occur, and that all allocated memory is deallocated by the termination of the program.
+(If there is a memory leak or bug in the compiled binaries provided, then let us know and we will fix them!)
+
+If all of your source code is given in \texttt{.cpp} and \texttt{.hpp} files in one directory, you can compress your tarball using the command
+
+\begin{center}
+\texttt{tar czf netid.tar.gz *.cpp *.hpp Makefile README}
+\end{center}
+
+
+\section{More Resources}
+
+\url{http://en.wikipedia.org/wiki/Directed_graph}
+
+\url{http://en.wikipedia.org/wiki/Breadth-first_search}
+
+\url{http://en.wikipedia.org/wiki/Strongly_connected_component}
+
+\url{http://en.wikipedia.org/wiki/Actor_model}
+
+\url{http://en.wikipedia.org/wiki/Automated_planning_and_scheduling}
+
+
+\end{document} 

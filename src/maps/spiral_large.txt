@@ -1,0 +1,51 @@
+PLANE 100 50
+####################################################################################################
+#*>                                                                                               *#
+# >vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv#
+# >*>                                                                                           *< #
+# > >vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv< #
+# > >*>                                                                                       *< < #
+# > > >vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv< < #
+# > > >*>                                                                                   *< < < #
+# > > > >vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv< < < #
+# > > > >*>                                                                               *< < < < #
+# > > > > >vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv< < < < #
+# > > > > >*>                                                                           *< < < < < #
+# > > > > > >vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv< < < < < #
+# > > > > > >*>                                                                       *< < < < < < #
+# > > > > > > >vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv< < < < < < #
+# > > > > > > >*>                                                                   *< < < < < < < #
+# > > > > > > > >vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv< < < < < < < #
+# > > > > > > > >*>                                                               *< < < < < < < < #
+# > > > > > > > > >vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv< < < < < < < < #
+# > > > > > > > > >*>                                                           *< < < < < < < < < #
+# > > > > > > > > > >vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv< < < < < < < < < #
+# > > > > > > > > > >*>                                                       *< < < < < < < < < < #
+# > > > > > > > > > > >vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv< < < < < < < < < < #
+# > > > > > > > > > > >*>                                                   *< < < < < < < < < < < #
+# > > > > > > > > > > > >vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv< < < < < < < < < < < #
+# > > > > > > > > > > > >*                                                *< < < < < < < < < < < < #
+# > > > > > > > > > > > >*                                                 <*< < < < < < < < < < < #
+# > > > > > > > > > > >^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^< < < < < < < < < < < #
+# > > > > > > > > > > >*                                                     <*< < < < < < < < < < #
+# > > > > > > > > > >^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^< < < < < < < < < < #
+# > > > > > > > > > >*                                                         <*< < < < < < < < < #
+# > > > > > > > > >^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^< < < < < < < < < #
+# > > > > > > > > >*                                                             <*< < < < < < < < #
+# > > > > > > > >^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^< < < < < < < < #
+# > > > > > > > >*                                                                 <*< < < < < < < #
+# > > > > > > >^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^< < < < < < < #
+# > > > > > > >*                                                                     <*< < < < < < #
+# > > > > > >^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^< < < < < < #
+# > > > > > >*                                                                         <*< < < < < #
+# > > > > >^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^< < < < < #
+# > > > > >*                                                                             <*< < < < #
+# > > > >^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^< < < < #
+# > > > >*                                                                                 <*< < < #
+# > > >^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^< < < #
+# > > >*                                                                                     <*< < #
+# > >^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^< < #
+# > >*                                                                                         <*< #
+# >^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^< #
+#h>*                                                                                             < #
+####################################################################################################
